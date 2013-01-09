@@ -10,6 +10,6 @@ $we.require("core", function() {
 		});
 
 		hljs.tabReplace = '    '; // 4 spaces
-	  	hljs.initHighlightingOnLoad();
+	  	hljs.initHighlighting();
 	});
 });
