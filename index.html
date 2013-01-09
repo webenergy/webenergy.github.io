@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="viewport" content="width=device-width">
+	<title>WeFramework</title>
+	<link rel="icon" href="img/battery.ico" />
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/xcode.css">
+	<script type="text/javascript" src="http://we.sdoprofile.com/common/js/release/loader.min.js"></script>
+</head>
+<body>
+	<div class="sidebar interface">
+		<a class="toc_title" href="">We Framework</a>
+		<ul class="toc_section">
+			<li>» <a target="_blank" href="http://we.sdoprofile.com/common/js/test">内部文档</a></li>
+			<li>» <a target="_blank" href="http://we.sdoprofile.com/common/js/release/loader.js">Loader</a></li>
+			<li>» <a target="_blank" href="https://github.com/inkless/weframework">Github地址</a></li>
+		</ul>
+		<a class="toc_title" href="#introduction">简介</a>
+		<a class="toc_title" href="#interface">接口描述</a>
+		<ul class="toc_section">
+			<li>- <a href="#$we.require">$we.require</a></li>
+			<li>- <a href="#$we.preload">$we.preload</a></li>
+			<li>- <a href="#$we.biz.use">$we.biz.use</a></li>
+			<li>- <a href="#$we.biz.announce">$we.biz.announce</a></li>
+			<li>- <a href="#$we.requireCss">$we.requireCss</a></li>
+		</ul>
+		<a class="toc_title" href="#module">模块说明</a>
+		<ul class="toc_section">
+			<li>- <a href="#Module-core">核心方法类模块</a></li>
+			<li>- <a href="#Module-widget">组件类模块</a></li>
+			<li>- <a href="#Module-coderunner">前端开发文档生成工具</a></li>
+			<li>- <a href="#Module-rsa">RSA加密模块</a></li>
+			<li>- <a href="#Module-dialog">对话框模块</a></li>
+			<li>- <a href="#Module-form">表单类模块</a></li>
+			<li>- <a href="#Module-datepicker">日期选择器模块</a></li>
+			<li>- <a href="#Module-pwdstrength">密码强度校验模块</a></li>
+		</ul>
+		<a class="toc_title" href="#widget">组件类</a>
+		<ul class="toc_section">
+			<li>- <a href="#Widget-intro">组件简介</a></li>
+			<li>- <a href="#Widget-node">组件节点管理</a></li>
+			<li>- <a href="#Widget-interfaces">组件接口</a></li>
+			<li>- <a href="#Widget-events">组件事件处理</a></li>
+			<li>- <a href="#Widget-notifies">组件通知处理</a></li>
+			<li>- <a href="#Widget-extend">组件的继承</a></li>
+		</ul>
+		<a class="toc_title" href="#business">业务流程组件</a>
+		<ul class="toc_section">
+			<li>- <a href="#Business-bind_mobile">绑定手机</a></li>
+			<li>- <a href="#Business-change_account_phone">修改手机</a></li>
+			<li>- <a href="#Business-unbind_mobile">解绑手机</a></li>
+
+			<li>- <a href="#Business-bind_account_to_mobile_group">绑定账号到手机群</a></li>
+			<li>- <a href="#Business-change_group_phone">修改手机群号码</a></li>
+			<li>- <a href="#Business-unbind_account_from_mobile_group">从手机群中解绑账号</a></li>
+
+			<li>- <a href="#Business-bind_email"></a>绑定邮箱</li>
+			<li>- <a href="#Business-change_email"></a>修改邮箱</li>
+
+			<li>- <a href="#Business-modify_password"></a>修改密码</li>
+			<li>- <a href="#Business-modify_password_by_phone"></a>通过手机修改密码</li>
+
+			<li>- <a href="#Business-account_transfer"></a>快速划账</li>
+
+			<li>- <a href="#Business-real_name_auth"></a>实名认证</li>
+		</ul>
+		<a class="toc_title" href="#whoisusing">谁正在使用</a>
+		<ul class="toc_section">
+			<li>- <a href="#Whoisusing-splus">splus.sdo.com</a></li>
+			<li>- <a href="#Whoisusing-idplus">idplus.sdo.com</a></li>
+			<li>- <a href="#Whoisusing-sj">sj.sdo.com</a></li>
+		</ul>
+		<a class="toc_title" href="#faq">F.A.Q.</a>
+		<ul class="toc_section">
+			<li>- <a href="#Faq-why">为什么使用We Framework</a></li>
+			<li>- <a href="#Faq-module">什么是模块加载</a></li>
+			<li>- <a href="#Faq-extend">如何扩展We Framework</a></li>
+			<li>- <a href="#Faq-debug">如何debug</a></li>
+		</ul>
+		<a class="toc_title" href="#changelog">更新日志</a>
+		<br />
+	</div>
+	<div class="container">
+		<h2 class="page_title"><img src="img/energy.png" />We Framework</h2>
+		<p>We Framework是盛大在线Web产品部在开发各种业务流程时所采用的一套前端框架解决方案。
+			以一个Loader为核心，自动获取当前最新的代码版本，并且根据业务的需求加载对应的代码。
+			实现以最简单的方式接入，并且无需后续维护。
+		</p>
+		<p>同时，通过Loader，您可以调用我们的框架中提供的任意功能，从强大的js组件、动画库，到丰富多彩的插件，
+			到盛大在线的各种业务功能（比如盛大用户的绑定手机功能）。
+			只需要非常简短的引用和极低成本的学习，就可以享受上述的所有功能！
+		</p>
+
+		<p>由于项目本身涉及公司业务，并未开源全部代码。但是如果有任何 <strong>BUG</strong> 或者任何 <strong>想跟我们讨论的</strong>，
+			可以直接在 <a href="https://github.com/inkless/weframework/issues" target="_blank">Github Issues页面</a> 发布issue，我们非常乐于得到您的任何回馈。
+		</p>
+
+		<h2 class="con_title" id="introduction">简介</h2>
+		<p>引用We Framework只有一个文件:</p>
+		<pre><code class="html">&lt;html>
+&lt;head>
+	&lt;script type="text/javascript" 
+	src="http://we.sdoprofile.com/common/js/release/loader.min.js" >&lt;/script>
+&lt;/head>
+&lt;body>
+...
+&lt;/body>
+&lt;/html>
+		</code></pre>
+
+		<p><b class="header">关于依赖</b><br />We Framework依赖于jQuery，而我们的Loader会做如下判断：</p>
+		<ul>
+			<li>如果在调用Loader之前已经有jQuery被加载，那么Loader会直接使用这个jQuery</li>
+			<li>如果在调用Loader之前并无jQuery，Loader会自动加载一个自己CDN下的jQuery</li>
+		</ul>
+
+		<p class="important"><strong>**</strong> 如果您是第一次查看此文档，并且在考虑是否要使用We Framework，您可以移步 <a href="#whoisusing">谁正在使用</a>
+			来查看正在使用的网站以及他们的使用状况。
+		</p>
+
+		<p class="important"><strong>**</strong> 如果您只想使用盛大在线业务流组件，请移步至 <a href="#business">业务流程组件</a>，从中选择您需要使用的组件。</p>
+
+		<p><strong>注意：</strong>此文档有很多例子可以 <strong>直接被运行</strong>，点击代码右上角的运行按钮即可。</p>
+		<pre class="runnable">
+<code class="javascript">alert("按我运行");</code></pre>
+
+		<h2 class="con_title" id="interface">接口描述</h2>
+		<p id="$we.require"><b class="header">$we.require</b><code>$we.require(module, [callback])</code><br />
+			引用一个或多个模块，<strong>module</strong> 为模块名称（字符串）或者模块名称的数组，callback的传参是每个引用的模块返回值。
+		</p>
+		<pre>
+<code class="javascript">$we.require(["module.a", "module.b"], function(a, b) {
+	var modA = a; // a为模块A的返回值
+	var instanceB = b(); // b为模块B的返回值
+});</code></pre>
+		<pre class="runnable">
+<code class="javascript">var original_arr = [1,2,3,4,5,6,7,8,9,10];
+$we.require("core/array", function(arr_module) {
+	// arr_module是core/array模块的返回
+	// arr_module.rand 是生成随机数组的方法
+	alert(arr_module.rand(original_arr));
+});</code></pre>
+
+		<p id="$we.preload"><b class="header">$we.preload</b><code>$we.preload(module)</code><br />
+			预加载一个或多个模块，<strong>module</strong> 为模块名称（字符串）或者模块名称的数组。
+			由于有些页面希望在用户操作之前，现将可能要加载的模块预先加载，那么可以使用这个函数来预加载模块。
+		</p>
+
+		<p id="$we.biz.use"><b class="header">$we.biz.use</b><code>$we.biz.use(name, [data], [callback], [config])</code><br />
+			使用一个业务流程（例如绑定手机）：<br />
+			<strong>name</strong> 为业务名称，<br />
+			<strong>data</strong> 为业务相关数据，如sdid等，没有可填写 <code>{}</code>，<br />
+			<strong>callback</strong> 为流程成功之后的回调函数，<br />
+			<strong>config</strong> 为该业务流程的具体表现层配置，比如流程浮层的宽度、流程名称等<br />
+		</p>
+		<pre class="runnable">
+<code class="javascript">$we.biz.use("bind_mobile", {}, function() {
+	alert("绑定成功了！");
+}, {
+	// width: 600,
+	// prev: false,
+	// next: "下一步",
+	// end: "完成",
+	// title: "手机绑定"
+});</code></pre>
+		<p><strong>注意：</strong>出于安全考虑，如果您想使用业务流程功能，请向我们申请权限，默认情况下，我们并不允许在任意站点使用该功能。
+			请联系 <a href="mailto:zhangguangda@snda.com">章光达</a> 或者 <a href="mailto:zhangzihang@snda.com">张子航</a>。
+		</p>
+
+		<p id="$we.biz.announce"><b class="header">$we.biz.announce</b><code>$we.biz.announce(name)</code><br />
+			预加载一个业务流程模块，<strong>name</strong> 为业务流程名称。
+			由于有些页面希望在用户操作之前，现将可能要加载的模块预先加载，那么可以使用这个函数来预加载模块。
+		</p>
+
+		<p id="$we.requireCss"><b class="header">$we.requireCss</b><code>$we.requireCss(url)</code><br />
+			加载一个css文件，<strong>url</strong> 为css的地址。
+		</p>
+		<pre>
+<code class="javascript">$we.requireCss("http://some/css/files");</code></pre>
+
+		<h2 class="con_title" id="module">模块说明</h2>
+		<p id="Module-core"><b class="header">核心方法类模块</b></p>
+
+		<p id="Module-widget"><b class="header">组件类模块</b></p>
+
+		<p id="Module-coderunner"><b class="header">前端开发文档生成工具</b></p>
+
+		<p id="Module-rsa"><b class="header">RSA加密模块</b></p>
+
+		<p id="Module-dialog"><b class="header">对话框模块</b></p>
+
+		<p id="Module-form"><b class="header">表单类模块</b></p>
+
+		<p id="Module-datepicker"><b class="header">日期选择器模块</b></p>
+
+		<p id="Module-pwdstrength"><b class="header">密码强度校验模块</b></p>
+
+		<h2 class="con_title" id="widget">组件类</h2>
+		<p>这里是组件类说明</p>
+
+		<h2 class="con_title" id="business">业务流程组件</h2>
+		<p>这里是业务流程组件说明</p>
+
+		<h2 class="con_title" id="whoisusing">谁正在使用</h2>
+		<p id="Whoisusing-splus"><b class="header">splus.sdo.com</b></p>
+		<div class="image_present">
+			<a target="_blank" href="http://splus.sdo.com">
+				<img src="img/splus.png" width="500">
+			</a>
+		</div>
+
+		<p id="Whoisusing-idplus"><b class="header">idplus.sdo.com</b></p>
+		<div class="image_present">
+			<a target="_blank" href="http://idplus.sdo.com">
+				<img src="img/idplus.png" width="500">
+			</a>
+		</div>
+
+		<p id="Whoisusing-sj"><b class="header">sj.sdo.com</b></p>
+		<div class="image_present">
+			<a target="_blank" href="http://sj.sdo.com">
+				<img src="img/sj.png" width="500">
+			</a>
+		</div>
+
+		<h2 class="con_title" id="faq">F.A.Q.</h2>
+		<p>F.A.Q.</p>
+
+		<h2 class="con_title" id="changelog">更新日志</h2>
+		<p>更新日志</p>
+
+		<pre class="runnable">
+<code class="javascript">$we.widget.reg("department", {
+	interfaces: {
+		admission: function(target) {
+			++ this.students;
+			this.notify("admission");
+		},
+		graduate: function() {
+			-- this.students;
+			this.notify("graduate");
+		},
+		getStudents: function() {
+			return this.students;
+		}
+	}
+});</code></pre>
+		<p id="t2">I'm Test 2</p>
+		<p id="t3">I'm Test 3</p>
+		<p id="t4">I'm Test 4</p>
+		<p id="t5">I'm Test 5</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+		<p id="t6">I'm Test 6</p>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/highlight.pack.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
