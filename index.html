@@ -15,7 +15,7 @@
 		<a class="toc_title" href="">We Framework</a>
 		<ul class="toc_section">
 			<li>» <a target="_blank" href="http://we.sdoprofile.com/common/js/test">内部文档</a></li>
-			<li>» <a target="_blank" href="http://we.sdoprofile.com/common/js/release/loader.js">Loader</a></li>
+			<li>» <a target="_blank" href="http://we.sdoprofile.com/common/js/release/loader.min.js">Loader</a></li>
 			<li>» <a target="_blank" href="https://github.com/inkless/weframework">Github地址</a></li>
 		</ul>
 		<a class="toc_title" href="#introduction">简介</a>
@@ -67,6 +67,26 @@
 
 			<li>- <a href="#Business-real_name_auth"></a>实名认证</li>
 		</ul>
+		<a class="toc_title" href="#businessIframe">业务流程组件Iframe</a>
+		<ul class="toc_section">
+			<li>- <a href="#businessIframe-bind_mobile">绑定手机</a></li>
+			<li>- <a href="#businessIframe-change_account_phone">修改手机</a></li>
+			<li>- <a href="#businessIframe-unbind_mobile">解绑手机</a></li>
+
+			<li>- <a href="#businessIframe-bind_account_to_mobile_group">绑定账号到手机群</a></li>
+			<li>- <a href="#businessIframe-change_group_phone">修改手机群号码</a></li>
+			<li>- <a href="#businessIframe-unbind_account_from_mobile_group">从手机群中解绑账号</a></li>
+
+			<li>- <a href="#businessIframe-bind_email"></a>绑定邮箱</li>
+			<li>- <a href="#businessIframe-change_email"></a>修改邮箱</li>
+
+			<li>- <a href="#businessIframe-modify_password"></a>修改密码</li>
+			<li>- <a href="#businessIframe-modify_password_by_phone"></a>通过手机修改密码</li>
+
+			<li>- <a href="#businessIframe-account_transfer"></a>快速划账</li>
+
+			<li>- <a href="#businessIframe-real_name_auth"></a>实名认证</li>
+		</ul>
 		<a class="toc_title" href="#whoisusing">谁正在使用</a>
 		<ul class="toc_section">
 			<li>- <a href="#Whoisusing-splus">splus.sdo.com</a></li>
@@ -95,21 +115,18 @@
 		</p>
 
 		<p>由于项目本身涉及公司业务，并未开源全部代码。但是如果有任何 <strong>BUG</strong> 或者任何 <strong>想跟我们讨论的</strong>，
-			可以直接在 <a href="https://github.com/inkless/weframework/issues" target="_blank">Github Issues页面</a> 发布issue，我们非常乐于得到您的任何回馈。
+			可以直接在 <a href="https://github.com/webenergy/webenergy.github.com/issues" target="_blank">Github Issues页面</a> 发布issue，我们非常乐于得到您的任何回馈。
 		</p>
 
 		<h2 class="con_title" id="introduction">简介</h2>
 		<p>引用We Framework只有一个文件:</p>
 		<pre><code class="html">&lt;html>
 &lt;head>
+	&lt;!--&lt;script src="http://somewhere/jquery.js">&lt;/script>-->
 	&lt;script type="text/javascript" 
 	src="http://we.sdoprofile.com/common/js/release/loader.min.js" >&lt;/script>
 &lt;/head>
-&lt;body>
-...
-&lt;/body>
-&lt;/html>
-		</code></pre>
+...</code></pre>
 
 		<p><b class="header">关于依赖</b><br />We Framework依赖于jQuery，而我们的Loader会做如下判断：</p>
 		<ul>
@@ -274,7 +291,6 @@ $we.require("core/array", function(arr_module) {
 		<p id="t6">I'm Test 6</p>
 		<p id="t6">I'm Test 6</p>
 	</div>
-	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/highlight.pack.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
