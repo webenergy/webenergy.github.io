@@ -77,12 +77,17 @@
 		<ul class="toc_section">
 			<li>- <a href="#Utils-initNameSpace">initNameSpace 初始化命名空间</a></li>
 			<li>- <a href="#Utils-request">request Http请求</a></li>
+			<li>- <a href="#Utils-exec">exec 运行一段代码</a></li>
+			<li>- <a href="#Utils-setValue">setValue 设置一个对象的值</a></li>
+			<li>- <a href="#Utils-addStyleSheet">addStyleSheet 添加一个StyleSheet</a></li>
 			<li>- <a href="#Utils-getFormElements">getFormElements 获取表单元素</a></li>
 			<li>- <a href="#Utils-validForm">validForm 验证表单</a></li>
 		</ul>
 		<a class="toc_title" href="#widget">Widget 组件类</a>
 		<ul class="toc_section">
 			<li>- <a href="#Widget-intro">组件简介</a></li>
+			<li>- <a href="#Widget-reg">组件注册</a></li>
+			<li>- <a href="#Widget-add">组件使用</a></li>
 			<li>- <a href="#Widget-node">组件节点管理</a></li>
 			<li>- <a href="#Widget-interfaces">组件接口</a></li>
 			<li>- <a href="#Widget-events">组件事件处理</a></li>
@@ -374,14 +379,96 @@ $we.require("core/array", function(arr_module) {
 });</code></pre>
 
 		<h2 class="con_title" id="array">Array</h2>
+		<p id="Array-rand"><b class="header">rand</b><code>$we.array.rand(arr, [len])</code><br />
+			根据给定的数组和数位生成随机数组。<br />
+			<strong>arr</strong> 数组<br />
+			<strong>len</strong> 取出数组的前几位<br />
+		</p>
+
 		<h2 class="con_title" id="cookie">Cookie</h2>
+		<p id="Cookie-set"><b class="header">设置Cookie</b><code>$.cookie(key, value, [options])</code><br />
+			设置页面Cookie。<code>options</code> 可设置这些选项：<code>expires</code>, <code>path</code>, <code>domain</code>, <code>secure</code>
+		</p>
+		<p id="Cookie-remove"><b class="header">删除Cookie</b><code>$.removecookie(key, [options])</code><br />
+			删除页面Cookie。<code>options</code> 可设置这些选项：<code>expires</code>, <code>path</code>, <code>domain</code>, <code>secure</code>
+		</p>
+
 		<h2 class="con_title" id="dom">Dom</h2>
+		<p id="Dom-getEvent"><b class="header">getEvent</b><code>$we.dom.getEvent()</code><br />
+			
+		</p>
+		<p id="Dom-getTarget"><b class="header">getTarget</b><code>$we.dom.getTarget(event)</code><br />
+			
+		</p>
+		<p id="Dom-scrollTo"><b class="header">scrollTo</b><code>$we.dom.scrollTo(to, [time], [callback])</code><br />
+			
+		</p>
+		<p id="Dom-imageLoaded"><b class="header">imageLoaded</b><code>$we.dom.imageLoaded(element, callback)</code><br />
+			
+		</p>
+
 		<h2 class="con_title" id="object">Object</h2>
+		<p id="Object-merge"><b class="header">merge</b><code>$we.object.merge(a, b, [bCover])</code><br />
+			
+		</p>
+		<p id="Object-getValue"><b class="header">getValue</b><code>$we.object.getValue(data, path)</code><br />
+			
+		</p>
+		
 		<h2 class="con_title" id="string">String</h2>
+		<p id="String-getInt"><b class="header">getInt</b><code>$we.string.getInt(str)</code><br />
+			
+		</p>
+		<p id="String-addStrNum"><b class="header">addStrNum</b><code>$we.string.addStrNum(target, num)</code><br />
+			
+		</p>
+		<p id="String-maskString"><b class="header">maskString</b><code>$we.string.maskString(str, [symbol])</code><br />
+			
+		</p>
+		<p id="String-replaceTmpl"><b class="header">replaceTmpl</b><code>$we.string.replaceTmpl(str, conf)</code><br />
+			
+		</p>
+		<p id="String-getHash"><b class="header">getHash</b><code>$we.string.getHash()</code><br />
+			
+		</p>
+		<p id="String-setHash"><b class="header">setHash</b><code>$we.string.setHash(str)</code><br />
+			
+		</p>
+		<p id="String-getQueryString"><b class="header">getQueryString</b><code>$we.string.getQueryString()</code><br />
+			
+		</p>
+		<p id="String-getQueryByName"><b class="header">getQueryByName</b><code>$we.string.getQueryByName(name)</code><br />
+			
+		</p>
+		<p id="String-getQueryByIndex"><b class="header">getQueryByIndex</b><code>$we.string.getQueryByIndex(index)</code><br />
+			
+		</p>
+		<p id="String-validIdCard"><b class="header">validIdCard</b><code>$we.string.validIdCard(str)</code><br />
+			
+		</p>
+
 		<h2 class="con_title" id="utils">Utils</h2>
-
-
-		<h2 class="con_title" id="core">核心方法</h2>
+		<p id="Utils-initNameSpace"><b class="header">initNameSpace</b><code>$we.utils.initNameSpace(router, root)</code><br />
+			
+		</p>
+		<p id="Utils-request"><b class="header">request</b><code>$we.utils.request(url, data, success, fail, [method], [isJsonp])</code><br />
+			
+		</p>
+		<p id="Utils-exec"><b class="header">exec</b><code>$we.utils.exec(code, [bTranslate])</code><br />
+			
+		</p>
+		<p id="Utils-setValue"><b class="header">setValue</b><code>$we.utils.setValue(target, data)</code><br />
+			
+		</p>
+		<p id="Utils-addStyleSheet"><b class="header">addStyleSheet</b><code>$we.utils.addStyleSheet(string, [document])</code><br />
+			
+		</p>
+		<p id="Utils-getFormElements"><b class="header">getFormElements</b><code>$we.utils.getFormElements(element)</code><br />
+			
+		</p>
+		<p id="Utils-validForm"><b class="header">validForm</b><code>$we.utils.validForm(element)</code><br />
+			
+		</p>
 
 		<h2 class="con_title" id="widget">组件类</h2>
 		<p>这里是组件类说明</p>
