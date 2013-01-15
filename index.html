@@ -173,7 +173,7 @@
 
 		<h2 class="con_title" id="interface">接口描述</h2>
 		<p id="$we.require"><b class="header">$we.require</b><code>$we.require(module, [callback])</code><br />
-			引用一个或多个模块，<strong>module</strong> 为模块名称（字符串）或者模块名称的数组，callback的传参是每个引用的模块返回值。
+			引用一个或多个模块，<code>module</code> 为模块名称（字符串）或者模块名称的数组，callback的传参是每个引用的模块返回值。
 		</p>
 		<pre>
 <code class="javascript">$we.require(["module.a", "module.b"], function(a, b) {
@@ -189,16 +189,16 @@ $we.require("core/array", function(arr_module) {
 });</code></pre>
 
 		<p id="$we.preload"><b class="header">$we.preload</b><code>$we.preload(module)</code><br />
-			预加载一个或多个模块，<strong>module</strong> 为模块名称（字符串）或者模块名称的数组。
+			预加载一个或多个模块，<code>module</code> 为模块名称（字符串）或者模块名称的数组。
 			由于有些页面希望在用户操作之前，现将可能要加载的模块预先加载，那么可以使用这个函数来预加载模块。
 		</p>
 
 		<p id="$we.biz.use"><b class="header">$we.biz.use</b><code>$we.biz.use(name, [data], [callback], [config])</code><br />
 			使用一个业务流程（例如绑定手机）：<br />
-			<strong>name</strong> 为业务名称，<br />
-			<strong>data</strong> 为业务相关数据，如sdid等，没有可填写 <code>{}</code>，<br />
-			<strong>callback</strong> 为流程成功之后的回调函数，<br />
-			<strong>config</strong> 为该业务流程的具体表现层配置，比如流程浮层的宽度、流程名称等<br />
+			<code>name</code> 为业务名称，<br />
+			<code>data</code> 为业务相关数据，如sdid等，没有可填写 <code>{}</code>，<br />
+			<code>callback</code> 为流程成功之后的回调函数，<br />
+			<code>config</code> 为该业务流程的具体表现层配置，比如流程浮层的宽度、流程名称等<br />
 		</p>
 		<pre class="runnable">
 <code class="javascript">$we.biz.use("bind_mobile", {}, function() {
@@ -216,12 +216,12 @@ $we.require("core/array", function(arr_module) {
 		</p>
 
 		<p id="$we.biz.announce"><b class="header">$we.biz.announce</b><code>$we.biz.announce(name)</code><br />
-			预加载一个业务流程模块，<strong>name</strong> 为业务流程名称。
+			预加载一个业务流程模块，<code>name</code> 为业务流程名称。
 			由于有些页面希望在用户操作之前，现将可能要加载的模块预先加载，那么可以使用这个函数来预加载模块。
 		</p>
 
 		<p id="$we.requireCss"><b class="header">$we.requireCss</b><code>$we.requireCss(url)</code><br />
-			加载一个css文件，<strong>url</strong> 为css的地址。
+			加载一个css文件，<code>url</code> 为css的地址。
 		</p>
 		<pre>
 <code class="javascript">$we.requireCss("http://some/css/files");</code></pre>
@@ -280,9 +280,9 @@ $we.require("core/array", function(arr_module) {
 		<p>每个部分/模块由一个 <code>textarea</code> 包起来，一切配置通过设置该 <code>textarea</code> 的属性来完成。
 			其中，需要对该 <code>textarea</code> 加上一个属性 <code>attr="coderunner"</code>。<br />
 			其它属性还包括：<br />
-			<strong>class</strong>: 该模块的语言，可选有: <code>html</code>,<code>javascript</code>,<code>css</code>，默认 <code>javascript</code><br />
-			<strong>title</strong>: 该模块的标题<br />
-			<strong>autorun</strong>: 该模块是否需要自动运行<br />
+			<code>class</code>: 该模块的语言，可选有: <code>html</code>,<code>javascript</code>,<code>css</code>，默认 <code>javascript</code><br />
+			<code>title</code>: 该模块的标题<br />
+			<code>autorun</code>: 该模块是否需要自动运行<br />
 			例如：
 		</p>
 		<pre>
@@ -364,8 +364,8 @@ $we.require("core/array", function(arr_module) {
 
 		<p id="Module-pwdstrength"><b class="header">密码强度校验模块</b><code>$we.pwdStrength(pwd, [username])</code><br />
 			在设置密码或者修改密码的时候，前端需要对密码的强度进行校验。<br />
-			<strong>pwd</strong> 需要校验的密码<br />
-			<strong>username</strong> 该用户的用户名<br />
+			<code>pwd</code> 需要校验的密码<br />
+			<code>username</code> 该用户的用户名<br />
 		</p>
 		<pre class="runnable">
 <code class="javascript">$we.require(["business/pwd_strength", "component/dialog"], function() {
@@ -381,8 +381,8 @@ $we.require("core/array", function(arr_module) {
 		<h2 class="con_title" id="array">Array</h2>
 		<p id="Array-rand"><b class="header">rand</b><code>$we.array.rand(arr, [len])</code><br />
 			根据给定的数组和数位生成随机数组。<br />
-			<strong>arr</strong> 数组<br />
-			<strong>len</strong> 取出数组的前几位<br />
+			<code>arr</code> 数组<br />
+			<code>len</code> 取出数组的前几位<br />
 		</p>
 
 		<h2 class="con_title" id="cookie">Cookie</h2>
@@ -395,57 +395,144 @@ $we.require("core/array", function(arr_module) {
 
 		<h2 class="con_title" id="dom">Dom</h2>
 		<p id="Dom-getEvent"><b class="header">getEvent</b><code>$we.dom.getEvent()</code><br />
-			
+			通过此方法，可以获取当前执行函数的 <code>event</code> 对象，比如：
 		</p>
+		<pre>
+<code class="html">&lt;a href="javascript:void(0);" onclick="we_test()">按钮&lt;/a></code></pre>
+		<p>
+			如果在函数 <code>we_test()</code> 中需要获取 <code>event</code> 对象，可以使用这个方法。
+		</p>
+		<a style="text-decoration:none;" class="btn" href="javascript:void(0);" onclick="we_test()">请先运行下面的javascript再点我</a>
+		<pre class="runnable">
+<code class="javascript">$we.require("core", function() {
+	window.we_test = function() {
+		alert($we.dom.getEvent());
+	};
+});</code></pre>
+
 		<p id="Dom-getTarget"><b class="header">getTarget</b><code>$we.dom.getTarget(event)</code><br />
-			
+			与上面的函数相关，但是获取的不是对象不再是 <code>event</code> 对象，而是触发 <code>click</code> 动作的 <code>element</code>。
+			这里我们复用上一个方法的按钮，请运行一下代码再试点击按钮。
 		</p>
+		<pre class="runnable">
+<code class="javascript">$we.require("core", function() {
+	window.we_test = function() {
+		var target = $we.dom.getTarget();
+		$(target).addClass("btn-primary");
+	};
+});</code></pre>
+
 		<p id="Dom-scrollTo"><b class="header">scrollTo</b><code>$we.dom.scrollTo(to, [time], [callback])</code><br />
-			
+			滑动页面到某个区域。
 		</p>
+		<pre class="runnable">
+<code class="javascript">$we.require("core", function() {
+	$we.dom.scrollTo(0, 300);
+	setTimeout(function() {
+		$we.dom.scrollTo("#Dom-scrollTo");	
+	}, 1000);
+});</code></pre>
+		<pre class="runnable">
+<code class="javascript">$we.require("core", function() {
+	$we.dom.scrollTo("#dom", 1000);
+});</code></pre>
+		<pre class="runnable">
+<code class="javascript">$we.require("core", function() {
+	$we.dom.scrollTo($("#object"), 400, function() {
+		setTimeout(function() {
+			$we.dom.scrollTo("#Dom-scrollTo");	
+		}, 1000);
+	});
+});</code></pre>
+
 		<p id="Dom-imageLoaded"><b class="header">imageLoaded</b><code>$we.dom.imageLoaded(element, callback)</code><br />
-			
+			监测某个节点下的图片加载，等待加载完毕后调用回调函数。
 		</p>
 
 		<h2 class="con_title" id="object">Object</h2>
-		<p id="Object-merge"><b class="header">merge</b><code>$we.object.merge(a, b, [bCover])</code><br />
-			
+		<p id="Object-merge"><b class="header">merge</b><code>$we.object.merge(destination, source, [bCover])</code><br />
+			将 <code>source</code> 对象的属性合并到 <code>destination</code> 中。对于属性重名的情况，如果 <code>bCover</code> 为
+			<code>true</code>，那么 <code>source</code> 对象的属性将会覆盖 <code>destination</code> 的已有属性。
+			<code>bCover</code> 默认为 <code>true</code>。
 		</p>
-		<p id="Object-getValue"><b class="header">getValue</b><code>$we.object.getValue(data, path)</code><br />
-			
+		<pre> $we.object.merge({name : 'moe'}, {age : 50});
+ => {name : 'moe', age : 50}</pre>
+		<p id="Object-getValue"><b class="header">getValue</b><code>$we.object.getValue(object, path)</code><br />
+			从一个对象中，依据路径取出对应的属性。
+			例如：
 		</p>
+		<pre> $we.object.getValue({we:{joe:{ali:"Hi",ck:"Im"}}}, "we.joe.ck")
+ => "Im"
+ $we.object.getValue({we:{joe:{ali:"Hi",ck:"Im"}}}, "we.jj")
+ => undefined</pre>
 		
 		<h2 class="con_title" id="string">String</h2>
 		<p id="String-getInt"><b class="header">getInt</b><code>$we.string.getInt(str)</code><br />
-			
+			从一个字符串中获取里面的第一组数字
 		</p>
+		<pre> $we.string.getInt("这里有23个苹果")
+ => 23
+ $we.string.getInt("这里有23个苹果和40个梨子")
+ => 23</pre>
+
 		<p id="String-addStrNum"><b class="header">addStrNum</b><code>$we.string.addStrNum(target, num)</code><br />
-			
+			将一个字符串内的数字增加一定数字
 		</p>
+		<pre> $we.string.addStrNum("这里有23个苹果", 1)
+ => "这里有24个苹果"
+ $we.string.addStrNum("这里有23个苹果", -4)
+ => "这里有19个苹果"</pre>
 		<p id="String-maskString"><b class="header">maskString</b><code>$we.string.maskString(str, [symbol])</code><br />
-			
+			给字符串打上掩码。
 		</p>
+		<pre> $we.string.maskString("13752632812")
+ => "137*****812"
+ $we.string.maskString("alice@gmail.com", "#")
+ => "al###e@gmail.com"</pre>
+
 		<p id="String-replaceTmpl"><b class="header">replaceTmpl</b><code>$we.string.replaceTmpl(str, conf)</code><br />
-			
+			字符串模板替换，模板字符使用 <code>$</code> 包起来，参见这个例子：
 		</p>
+		<pre> $we.string.replaceTmpl("这个是$name$模板", {name: "We Framework"})
+ => "这个是We Framework模板"</pre>
 		<p id="String-getHash"><b class="header">getHash</b><code>$we.string.getHash()</code><br />
-			
+			获取页面地址的Hash。
 		</p>
+		<pre class="runnable">
+<code class="javascript">alert($we.string.getHash());</code></pre>
 		<p id="String-setHash"><b class="header">setHash</b><code>$we.string.setHash(str)</code><br />
-			
+			设置页面地址的Hash
 		</p>
-		<p id="String-getQueryString"><b class="header">getQueryString</b><code>$we.string.getQueryString()</code><br />
-			
+		<pre class="runnable">
+<code class="javascript">$we.string.setHash("#String-setHash");</code></pre>
+		<p id="String-getQueryString"><b class="header">getQueryString</b><code>$we.string.getQueryString([str])</code><br />
+			获取Str的Query数组，<code>str</code> 不传则取当前页面地址
 		</p>
-		<p id="String-getQueryByName"><b class="header">getQueryByName</b><code>$we.string.getQueryByName(name)</code><br />
-			
+		<pre class="runnable">
+<code class="javascript">alert($we.string.getQueryString("http://abc.de?a=1&amp;b=2"));</code></pre>
+		<p id="String-getQueryByName"><b class="header">getQueryByName</b><code>$we.string.getQueryByName(name, [str])</code><br />
+			通过 <code>name</code> 获取Str的Query，<code>str</code> 不传则取当前页面地址
 		</p>
-		<p id="String-getQueryByIndex"><b class="header">getQueryByIndex</b><code>$we.string.getQueryByIndex(index)</code><br />
-			
+		<pre class="runnable">
+<code class="javascript">alert($we.string.getQueryByName("a","http://abc.de?a=1&amp;b=2"));</code></pre>
+		<p id="String-getQueryByIndex"><b class="header">getQueryByIndex</b><code>$we.string.getQueryByIndex(index, [str])</code><br />
+			通过 <code>index</code> 获取Str的Query，<code>str</code> 不传则取当前页面地址
 		</p>
+		<pre class="runnable">
+<code class="javascript">alert($we.string.getQueryByIndex(1,"http://abc.de?a=1&amp;b=2"));</code></pre>
+
 		<p id="String-validIdCard"><b class="header">validIdCard</b><code>$we.string.validIdCard(str)</code><br />
-			
+			验证身份证的合法性。
 		</p>
+		<pre class="runnable">
+<code class="javascript">var card = prompt("请输入身份证号码：");
+if (card) {
+	if ($we.string.validIdCard(card)) {
+		alert("该身份证号码合法！");
+	} else {
+		alert("该身份证号码不合法！");
+	}
+}</code></pre>
 
 		<h2 class="con_title" id="utils">Utils</h2>
 		<p id="Utils-initNameSpace"><b class="header">initNameSpace</b><code>$we.utils.initNameSpace(router, root)</code><br />
