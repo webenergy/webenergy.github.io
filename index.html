@@ -238,6 +238,11 @@ $we.require("core/array", function(arr_module) {
 			<li><a href="#string">String 字符方法</a></li>
 			<li><a href="#utils">Utils 工具方法</a></li>
 		</ul>
+		<p><strong>注：</strong> 使用核心方法需要 <code>require</code> <code>"core"</code> 模块，也即：</p>
+		<pre>
+<code class="javascript">$we.require("core", function() {
+	// 这里是调用核心方法的代码
+});</code></pre>
 
 		<p id="Module-widget"><b class="header">组件类模块</b><code>$we.widget.reg, $we.widget.add</code><br />
 			组件是We Framework的一个核心模块，其目的是将各种固定的公共，业务类需求沉淀下来，形成组件。
