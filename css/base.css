@@ -109,6 +109,15 @@ body {
 	transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
+.container small {
+	font-size: 12px;
+}
+
+a.webenergy {
+	font-size: 20px;
+	text-decoration: none;
+}
+
 div.run {
 	position: absolute;
 	right: 15px;

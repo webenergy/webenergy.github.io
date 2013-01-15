@@ -104,15 +104,15 @@
 			<li>- <a href="#Business-change_group_phone">修改手机群号码</a></li>
 			<li>- <a href="#Business-unbind_account_from_mobile_group">从手机群中解绑账号</a></li>
 
-			<li>- <a href="#Business-bind_email"></a>绑定邮箱</li>
-			<li>- <a href="#Business-change_email"></a>修改邮箱</li>
+			<li>- <a href="#Business-bind_email">绑定邮箱</a></li>
+			<li>- <a href="#Business-change_email">修改邮箱</a></li>
 
-			<li>- <a href="#Business-modify_password"></a>修改密码</li>
-			<li>- <a href="#Business-modify_password_by_phone"></a>通过手机修改密码</li>
+			<li>- <a href="#Business-modify_password">修改密码</a></li>
+			<li>- <a href="#Business-modify_password_by_phone">通过手机修改密码</a></li>
 
-			<li>- <a href="#Business-account_transfer"></a>快速划账</li>
+			<li>- <a href="#Business-account_transfer">快速划账</a></li>
 
-			<li>- <a href="#Business-real_name_auth"></a>实名认证</li>
+			<li>- <a href="#Business-real_name_auth">实名认证</a></li>
 		</ul>
 		<a class="toc_title" href="#whoisusing">谁正在使用</a>
 		<ul class="toc_section">
@@ -122,10 +122,10 @@
 		</ul>
 		<a class="toc_title" href="#faq">F.A.Q.</a>
 		<ul class="toc_section">
-			<li>- <a href="#Faq-why">为什么使用We Framework</a></li>
-			<li>- <a href="#Faq-module">什么是模块加载</a></li>
-			<li>- <a href="#Faq-extend">如何扩展We Framework</a></li>
-			<li>- <a href="#Faq-debug">如何debug</a></li>
+			<li>- <a href="#Faq-why">为什么使用We Framework？</a></li>
+			<li>- <a href="#Faq-module">什么是模块加载？</a></li>
+			<li>- <a href="#Faq-extend">如何扩展We Framework？</a></li>
+			<li>- <a href="#Faq-debug">如何debug？</a></li>
 		</ul>
 		<a class="toc_title" href="#changelog">更新日志</a>
 		<br />
@@ -471,10 +471,61 @@ $we.require("core/array", function(arr_module) {
 		</p>
 
 		<h2 class="con_title" id="widget">组件类</h2>
-		<p>这里是组件类说明</p>
+		<p id="Widget-intro"><b class="header">组件简介</b><br />
+			
+		</p>
+		<p id="Widget-reg"><b class="header">组件注册</b><code>$we.widget.reg(name, option)</code><br />
+			
+		</p>
+		<p id="Widget-reg"><b class="header">组件使用</b><code>$we.widget.add(name, [params], [params], ...)</code><br />
+			
+		</p>
+		<p id="Widget-node"><b class="header">组件节点管理</b><br />
+			
+		</p>
+		<p id="Widget-interfaces"><b class="header">组件接口</b><br />
+			
+		</p>
+		<p id="Widget-events"><b class="header">组件事件处理</b><br />
+			
+		</p>
+		<p id="Widget-notifies"><b class="header">组件通知处理</b><br />
+			
+		</p>
+		<p id="Widget-extend"><b class="header">组件的继承</b><br />
+			
+		</p>
 
 		<h2 class="con_title" id="business">业务流程组件</h2>
-		<p>这里是业务流程组件说明</p>
+		<p id="Business-bind_mobile"><b class="header">绑定手机</b><code>$we.biz.use("bind_mobile", data, callback)</code><br />
+		</p>
+		<p id="Business-change_account_phone"><b class="header">修改手机</b><code>$we.biz.use("change_account_phone", data, callback)</code><br />
+		</p>
+		<p id="Business-unbind_mobile"><b class="header">解绑手机</b><code>$we.biz.use("unbind_mobile", data, callback)</code><br />
+		</p>
+
+		<p id="Business-bind_account_to_mobile_group"><b class="header">绑定账号到手机群</b><code>$we.biz.use("bind_account_to_mobile_group", data, callback)</code><br />
+		</p>
+		<p id="Business-change_group_phone"><b class="header">修改手机群号码</b><code>$we.biz.use("change_group_phone", data, callback)</code><br />
+		</p>
+		<p id="Business-unbind_account_from_mobile_group"><b class="header">从手机群中解绑账号</b><code>$we.biz.use("unbind_account_from_mobile_group", data, callback)</code><br />
+		</p>
+
+		<p id="Business-bind_email"><b class="header">绑定邮箱</b><code>$we.biz.use("bind_email", data, callback)</code><br />
+		</p>
+		<p id="Business-change_email"><b class="header">修改邮箱</b><code>$we.biz.use("change_email", data, callback)</code><br />
+		</p>
+
+		<p id="Business-modify_password"><b class="header">修改密码</b><code>$we.biz.use("modify_password", data, callback)</code><br />
+		</p>
+		<p id="Business-modify_password_by_phone"><b class="header">通过手机修改密码</b><code>$we.biz.use("modify_password_by_phone", data, callback)</code><br />
+		</p>
+
+		<p id="Business-account_transfer"><b class="header">快速划账</b><code>$we.biz.use("account_transfer", data, callback)</code><br />
+		</p>
+
+		<p id="Business-real_name_auth"><b class="header">实名认证</b><code>$we.biz.use("real_name_auth", data, callback)</code><br />
+		</p>
 
 		<h2 class="con_title" id="whoisusing">谁正在使用</h2>
 		<p id="Whoisusing-splus"><b class="header">splus.sdo.com</b></p>
@@ -499,52 +550,25 @@ $we.require("core/array", function(arr_module) {
 		</div>
 
 		<h2 class="con_title" id="faq">F.A.Q.</h2>
-		<p>F.A.Q.</p>
+		<p id="Faq-why"><b class="header">为什么使用We Framework？</b><br />
+		</p>
+		<p id="Faq-module"><b class="header">什么是模块加载？</b><br />
+		</p>
+		<p id="Faq-extend"><b class="header">如何扩展We Framework？</b><br />
+		</p>
+		<p id="Faq-debug"><b class="header">如何debug？</b><br />
+		</p>
 
 		<h2 class="con_title" id="changelog">更新日志</h2>
-		<p>更新日志</p>
-
-		<pre class="runnable">
-<code class="javascript">$we.widget.reg("department", {
-	interfaces: {
-		admission: function(target) {
-			++ this.students;
-			this.notify("admission");
-		},
-		graduate: function() {
-			-- this.students;
-			this.notify("graduate");
-		},
-		getStudents: function() {
-			return this.students;
-		}
-	}
-});</code></pre>
-		<p id="t2">I'm Test 2</p>
-		<p id="t3">I'm Test 3</p>
-		<p id="t4">I'm Test 4</p>
-		<p id="t5">I'm Test 5</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
-		<p id="t6">I'm Test 6</p>
+		<p><b class="header">1.0.0</b> — <small><i>2012年10月12日</i></small><br />
+		</p>
+		<p><b class="header">1.0.1</b> — <small><i>2012年12月25日</i></small><br />
+		</p>
+		<p><b class="header">1.0.2</b> — <small><i>2012年1月15日</i></small><br />
+		</p>
+		<p class="image_present">
+			<a target="_blank" href="http://www.sdo.com"><img src="img/sdologo.jpg" /></a>
+		</p>
 	</div>
 	<script type="text/javascript" src="js/highlight.pack.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
