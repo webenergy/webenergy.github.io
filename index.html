@@ -16,7 +16,7 @@
 		<ul class="toc_section">
 			<li>» <a target="_blank" href="http://we.sdoprofile.com/common/js/test">内部文档</a></li>
 			<li>» <a target="_blank" href="http://we.sdoprofile.com/common/js/release/loader.min.js">Loader</a></li>
-			<li>» <a target="_blank" href="https://github.com/inkless/weframework">Github地址</a></li>
+			<li>» <a target="_blank" href="https://github.com/webenergy/webenergy.github.com">Github地址</a></li>
 		</ul>
 		<a class="toc_title" href="#introduction">简介</a>
 		<a class="toc_title" href="#interface">接口描述</a>
@@ -31,14 +31,56 @@
 		<ul class="toc_section">
 			<li>- <a href="#Module-core">核心方法类模块</a></li>
 			<li>- <a href="#Module-widget">组件类模块</a></li>
-			<li>- <a href="#Module-coderunner">前端开发文档生成工具</a></li>
+			<li>- <a href="#Module-process">业务流程模块</a></li>
+			<li>- <a href="#Module-coderunner">CodeRunner</a></li>
 			<li>- <a href="#Module-rsa">RSA加密模块</a></li>
 			<li>- <a href="#Module-dialog">对话框模块</a></li>
 			<li>- <a href="#Module-form">表单类模块</a></li>
 			<li>- <a href="#Module-datepicker">日期选择器模块</a></li>
 			<li>- <a href="#Module-pwdstrength">密码强度校验模块</a></li>
 		</ul>
-		<a class="toc_title" href="#widget">组件类</a>
+		<a class="toc_title" href="#array">Array</a>
+		<ul class="toc_section">
+			<li>- <a href="#Array-rand">rand 生成随机数组</a></li>
+		</ul>
+		<a class="toc_title" href="#cookie">Cookie</a>
+		<ul class="toc_section">
+			<li>- <a href="#Cookie-set">$.cookie 设置cookie</a></li>
+			<li>- <a href="#Cookie-remove">$.removeCookie 删除cookie</a></li>
+		</ul>
+		<a class="toc_title" href="#dom">Dom</a>
+		<ul class="toc_section">
+			<li>- <a href="#Dom-getEvent">getEvent 获取事件对象</a></li>
+			<li>- <a href="#Dom-getTarget">getTarget 获取对象</a></li>
+			<li>- <a href="#Dom-scrollTo">scrollTo 滚动至</a></li>
+			<li>- <a href="#Dom-imageLoaded">imageLoaded 等待图片加载</a></li>
+		</ul>
+		<a class="toc_title" href="#object">Object</a>
+		<ul class="toc_section">
+			<li>- <a href="#Object-merge">merge 合并对象</a></li>
+			<li>- <a href="#Object-getValue">getValue 根据路径获取对象</a></li>
+		</ul>
+		<a class="toc_title" href="#string">String</a>
+		<ul class="toc_section">
+			<li>- <a href="#String-getInt">getInt 获取字符串当中的数字</a></li>
+			<li>- <a href="#String-addStrNum">addStrNum 增涨字符串中的数字</a></li>
+			<li>- <a href="#String-maskString">maskString 掩码</a></li>
+			<li>- <a href="#String-replaceTmpl">replaceTmpl 替换模版</a></li>
+			<li>- <a href="#String-getHash">getHash 获取Hash</a></li>
+			<li>- <a href="#String-setHash">setHash 设置Hash</a></li>
+			<li>- <a href="#String-getQueryString">getQueryString 获取Query请求</a></li>
+			<li>- <a href="#String-getQueryByName">getQueryByName 根据名称获取Query</a></li>
+			<li>- <a href="#String-getQueryByIndex">getQueryByIndex 根据Index获取Query</a></li>
+			<li>- <a href="#String-validIdCard">validIdCard 验证身份证合法性</a></li>
+		</ul>
+		<a class="toc_title" href="#utils">Utils</a>
+		<ul class="toc_section">
+			<li>- <a href="#Utils-initNameSpace">initNameSpace 初始化命名空间</a></li>
+			<li>- <a href="#Utils-request">request Http请求</a></li>
+			<li>- <a href="#Utils-getFormElements">getFormElements 获取表单元素</a></li>
+			<li>- <a href="#Utils-validForm">validForm 验证表单</a></li>
+		</ul>
+		<a class="toc_title" href="#widget">Widget 组件类</a>
 		<ul class="toc_section">
 			<li>- <a href="#Widget-intro">组件简介</a></li>
 			<li>- <a href="#Widget-node">组件节点管理</a></li>
@@ -47,7 +89,7 @@
 			<li>- <a href="#Widget-notifies">组件通知处理</a></li>
 			<li>- <a href="#Widget-extend">组件的继承</a></li>
 		</ul>
-		<a class="toc_title" href="#business">业务流程组件</a>
+		<a class="toc_title" href="#business">Process 业务流程组件</a>
 		<ul class="toc_section">
 			<li>- <a href="#Business-bind_mobile">绑定手机</a></li>
 			<li>- <a href="#Business-change_account_phone">修改手机</a></li>
@@ -66,26 +108,6 @@
 			<li>- <a href="#Business-account_transfer"></a>快速划账</li>
 
 			<li>- <a href="#Business-real_name_auth"></a>实名认证</li>
-		</ul>
-		<a class="toc_title" href="#businessIframe">业务流程组件Iframe</a>
-		<ul class="toc_section">
-			<li>- <a href="#businessIframe-bind_mobile">绑定手机</a></li>
-			<li>- <a href="#businessIframe-change_account_phone">修改手机</a></li>
-			<li>- <a href="#businessIframe-unbind_mobile">解绑手机</a></li>
-
-			<li>- <a href="#businessIframe-bind_account_to_mobile_group">绑定账号到手机群</a></li>
-			<li>- <a href="#businessIframe-change_group_phone">修改手机群号码</a></li>
-			<li>- <a href="#businessIframe-unbind_account_from_mobile_group">从手机群中解绑账号</a></li>
-
-			<li>- <a href="#businessIframe-bind_email"></a>绑定邮箱</li>
-			<li>- <a href="#businessIframe-change_email"></a>修改邮箱</li>
-
-			<li>- <a href="#businessIframe-modify_password"></a>修改密码</li>
-			<li>- <a href="#businessIframe-modify_password_by_phone"></a>通过手机修改密码</li>
-
-			<li>- <a href="#businessIframe-account_transfer"></a>快速划账</li>
-
-			<li>- <a href="#businessIframe-real_name_auth"></a>实名认证</li>
 		</ul>
 		<a class="toc_title" href="#whoisusing">谁正在使用</a>
 		<ul class="toc_section">
@@ -183,6 +205,7 @@ $we.require("core/array", function(arr_module) {
 	// end: "完成",
 	// title: "手机绑定"
 });</code></pre>
+		<p class="important">具体业务流程的名称和使用请参见：<a href="#business">业务流程组件</a></p>
 		<p><strong>注意：</strong>出于安全考虑，如果您想使用业务流程功能，请向我们申请权限，默认情况下，我们并不允许在任意站点使用该功能。
 			请联系 <a href="mailto:zhangguangda@snda.com">章光达</a> 或者 <a href="mailto:zhangzihang@snda.com">张子航</a>。
 		</p>
@@ -199,21 +222,166 @@ $we.require("core/array", function(arr_module) {
 <code class="javascript">$we.requireCss("http://some/css/files");</code></pre>
 
 		<h2 class="con_title" id="module">模块说明</h2>
-		<p id="Module-core"><b class="header">核心方法类模块</b></p>
+		<p id="Module-core"><b class="header">核心方法类模块</b><br />
+			除了jQuery的核心方法，We Framework也拥有自己的一些核心方法：
+		</p>
+		<ul>
+			<li><a href="#array">Array 数组方法</a></li>
+			<li><a href="#cookie">Cookie Cookie方法</a></li>
+			<li><a href="#dom">Dom Dom方法</a></li>
+			<li><a href="#object">Object 对象方法</a></li>
+			<li><a href="#string">String 字符方法</a></li>
+			<li><a href="#utils">Utils 工具方法</a></li>
+		</ul>
 
-		<p id="Module-widget"><b class="header">组件类模块</b></p>
+		<p id="Module-widget"><b class="header">组件类模块</b><code>$we.widget.reg, $we.widget.add</code><br />
+			组件是We Framework的一个核心模块，其目的是将各种固定的公共，业务类需求沉淀下来，形成组件。
+			统一管理其HTML，事件响应，以及组件之间的相互调用和继承关系。
+			组件模块本身是一个Widget类，每个新注册的组件都是该Widget类的继承，可以继承这个类的各种基础函数和性质。
+			<br />详细的组件说明请参考： <a href="#widget">组件类模块</a></p>
 
-		<p id="Module-coderunner"><b class="header">前端开发文档生成工具</b></p>
+		<p id="Module-process"><b class="header">业务流程模块</b><code>$we.biz.use(name, [data], [callback], [config])</code><br />
+			业务流程模块是基于SDO繁杂的业务流程需求而定制的模块。
+			该模块将各种业务流程打散成步骤，将各种步骤实现成为一个组件，而设计每一个流程则是将各个不同的组件（步骤）串联起来。
+			同时，通过内置的<code>beforeAction</code>条件的判断来实现流程的分支，跳跃。
+			<br />详细的业务流程请参考：<a href="#business">业务流程组件</a>
+		</p>
 
-		<p id="Module-rsa"><b class="header">RSA加密模块</b></p>
+		<p id="Module-coderunner"><b class="header">CodeRunner</b><code>$we.require("component/coderunner")</code><br />
+			CodeRunner模块是在业务开发过程中，为了方便代码的调试和测试而形成的文档生成类模块。<br />
+			通过极其简单的规则，就可以自动将页面转成需要的文档。文档支持：
+		</p>
+		<ul>
+			<li>支持三种语言的语法高亮: JavaScript,HTML,CSS</li>
+			<li>支持自动生成页面目录结构</li>
+			<li>支持编辑代码</li>
+			<li>支持运行代码，在编辑状态下，按 <code>CTRL+R</code> 或者 <code>CMD+R</code> 运行当前代码
+				<dl>
+					<dd>> JavaScript的运行是直接在当前环境下运行编辑器中的代码</dd>
+					<dd>> HTML的运行会在代码下方添加一个div，并将编辑器中的代码添加到该div里</dd>
+					<dd>> CSS的运行会在页面中直接添加一个style</dd>
+				</dl>
+			</li>
+			<li>支持页面打开后自动运行编辑器中的代码</li>
+			<li>支持 <code>ALT+1</code>, <code>ALT+2</code> 跳转到对应的编辑器内并且聚焦</li>
+			<li>支持整理代码</li>
+			<li>在编辑状态，按 <code>CTRL+S</code> 或者 <code>CMD+S</code> 可以直接保存代码到本地（需要对应的PHP脚本）</li>
+		</ul>
+		<p><b>使用方法：</b><br />
+			通过 <code>$we.require</code> 引入CodeRunner模块：
+		</p>
+		<pre>
+<code class="javascript">$we.require("component/coderunner");</code></pre>
+		<p>每个部分/模块由一个 <code>textarea</code> 包起来，一切配置通过设置该 <code>textarea</code> 的属性来完成。
+			其中，需要对该 <code>textarea</code> 加上一个属性 <code>attr="coderunner"</code>。<br />
+			其它属性还包括：<br />
+			<strong>class</strong>: 该模块的语言，可选有: <code>html</code>,<code>javascript</code>,<code>css</code>，默认 <code>javascript</code><br />
+			<strong>title</strong>: 该模块的标题<br />
+			<strong>autorun</strong>: 该模块是否需要自动运行<br />
+			例如：
+		</p>
+		<pre>
+<code class="html">&lt;textarea title="这个是标题" attr="coderunner" 
+	class="javascript" autorun="true">alert(1);&lt;/textarea></code></pre>
+			
 
-		<p id="Module-dialog"><b class="header">对话框模块</b></p>
+		<p class="important">可以参考 <a target="_blank" href="http://we.sdoprofile.com/common/js/test/component/coderunner.html">CodeRunner</a> 页面查看具体使用情况</p>
 
-		<p id="Module-form"><b class="header">表单类模块</b></p>
+		<p id="Module-rsa"><b class="header">RSA加密模块</b><code>$we.rsa.encrypt(str)</code><br />
+			JavaScript处理RSA加密：
+		</p>
+		<pre class="runnable">
+<code class="javascript">$we.require("component/rsa", function() {
+	$we.rsa.publicKey = 
+"C99F5B2FA7880E5224BCA8B6E6EAAF03CF0AE7CC74D881B2C532C0346B743911";
+	$we.rsa.maxDigit = 131;
+	$we.rsa.encryptExp = "10001";
+	var plaintext = "Hello!";
+	alert($we.rsa.encrypt(plaintext));
+});</code></pre>
 
-		<p id="Module-datepicker"><b class="header">日期选择器模块</b></p>
 
-		<p id="Module-pwdstrength"><b class="header">密码强度校验模块</b></p>
+		<p id="Module-dialog"><b class="header">对话框模块</b><code>$we.widget.add("Dialog", [config])</code><br />
+			WE 框架拥有固定的对话框样式，允许用户根据配置自行渲染一个对话框：
+		</p>
+		<pre class="runnable">
+<code class="javascript">$we.require("component/dialog", function() {
+	var dialog = $we.widget.add("Dialog", {
+		width:      500,
+        mask:       true,
+        title:      "标题",
+        subTitle:   "副标题",
+        close:      true,
+        content:    '&lt;div style="text-align:center;line-height:50px;">'
+        + '&lt;h2>这是We Framework！&lt;/h2>&lt;p>你会爱上它的！&lt;/p>&lt;/div>'
+	});
+	dialog.open();
+});</code></pre>
+		<p>事实上，我们也有一些已经预定制的对话框，Alert和Confirm：</p>
+		<pre class="runnable">
+<code class="javascript">$we.require("component/dialog", function() {
+	$we.comp.alert("欢迎使用We Framework！！！");
+});</code></pre>
+		<pre class="runnable">
+<code class="javascript">$we.require("component/dialog", function() {
+	$we.comp.confirm("你热爱中国么？", function() {
+		alert("好样的！");
+	}, function() {
+		alert("额，这是你的自由...");
+	});
+});</code></pre>
+
+		<p id="Module-form"><b class="header">表单类模块</b><code>$we.widget.add("Form", element, [config])</code><br />
+			针对Form表单，We Framework有一套统一的解决方案。<br />
+			<!-- TODO -->
+			<strong>文档有待补充</strong>
+		</p>
+
+		<p id="Module-datepicker"><b class="header">日期选择器模块</b><code>$we.comp.datepicker.on(id)</code><br />
+			这里使用了外站的一个日期选择器，可以通过简单的接口调用给input框添加日期选择功能。
+			例如：<br />
+			请在此输入日期： <input id="dp-input" placeholder="这里输入日期" type="text" /> 注：此 <code>input</code> 框的 <code>id</code> 为 <code>dp-input</code><br />
+			请执行下面代码之后，再点击 <code>input</code> 框查看效果。
+		</p>
+		<pre class="runnable">
+<code class="javascript">$we.require("component/datepicker", function() {
+	// 以下为默认选项
+	// var d = new Date();
+	// $we.comp.datepicker.setOption({
+	// 	skin: "whyGreen",
+	// 	dateFmt: "yyyy-MM-dd",
+	// 	maxDate: [d.getFullYear(), (d.getMonth()+1), d.getDate()].join("-"),
+	// 	lang: "zh-cn"
+	// });
+	$we.comp.datepicker.on("dp-input");
+});</code></pre>
+			
+
+		<p id="Module-pwdstrength"><b class="header">密码强度校验模块</b><code>$we.pwdStrength(pwd, [username])</code><br />
+			在设置密码或者修改密码的时候，前端需要对密码的强度进行校验。<br />
+			<strong>pwd</strong> 需要校验的密码<br />
+			<strong>username</strong> 该用户的用户名<br />
+		</p>
+		<pre class="runnable">
+<code class="javascript">$we.require(["business/pwd_strength", "component/dialog"], function() {
+	var pwd = prompt("请输入您的密码：");
+	if (pwd) {
+		var result = $we.pwdStrength(pwd, "weframework");
+		var popMsg = "Result&lt;br /> level|errno|msg:&lt;br />" 
+		+ [result.level, result.errno, result.msg].join("|");
+		$we.comp.alert(popMsg);
+	}
+});</code></pre>
+
+		<h2 class="con_title" id="array">Array</h2>
+		<h2 class="con_title" id="cookie">Cookie</h2>
+		<h2 class="con_title" id="dom">Dom</h2>
+		<h2 class="con_title" id="object">Object</h2>
+		<h2 class="con_title" id="string">String</h2>
+		<h2 class="con_title" id="utils">Utils</h2>
+
+
+		<h2 class="con_title" id="core">核心方法</h2>
 
 		<h2 class="con_title" id="widget">组件类</h2>
 		<p>这里是组件类说明</p>
