@@ -631,13 +631,22 @@ alert(we_exec_test_trans + "\n" + we_exec_test_untrans);</code></pre>
 		<p>在页面中引用了 We Framework 的 Loader 之后，即可直接调用业务流程的所有方法。
 			除此之外，我们还提供 <code>iframe</code> 版本的业务流程组件：<br />
 		</p>
-		<pre>http://safe.sdo.com/iframe/process?name=xx&amp;theme=xx&amp;width=xx&amp;need_title=xx</pre>
+		<pre>
+<code class="html">&lt;script src="http://we.sdoprofile.com/common/js/release/loader.min.js">
+	&lt;/script>
+&lt;script type="text/javascript">$we.biz.use("name")&lt;/script>
+&lt;!-- 或者使用 iframe --&gt;
+&lt;iframe src="http://safe.sdo.com/iframe/process?
+	name=xx&amp;theme=xx&amp;width=xx&amp;need_title=xx"&gt;&lt;/iframe&gt;
+</code></pre>
+		<pre></pre>
 		<p>
-			其中：<br />
+			<b>JavaScript</b> 方式的引用的说明，还可以参考 <a href="#$we.biz.use">$we.biz.use</a><br />
+			<b>iframe</b> 方式中：<br />
 			<code>name</code> 表示组件的名称，将在下面逐一介绍<br />
 			<code>theme</code> 表示组件选用的主题，目前有两个选择: <code>red</code>， <code>blue</code><br />
 			<code>width</code> 表示组件的总体宽度<br />
-			<code>need_title</code> 表示组件是否需要标题区域<br />
+			<code>need_title</code> 表示组件是否需要标题区域，可选 <code>0</code> 或者 <code>1</code><br />
 		</p>
 
 		<p id="Business-bind_mobile"><b class="header">绑定手机</b><code>$we.biz.use("bind_mobile", data, callback)</code><br />
