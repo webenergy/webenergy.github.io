@@ -344,7 +344,7 @@ $we.require("core/array", function(arr_module) {
 		<p id="Module-form"><b class="header">表单类模块</b><code>$we.widget.add("Form", element, [config])</code><br />
 			针对Form表单，We Framework有一套统一的解决方案。<br />
 			<!-- TODO -->
-			<strong>文档有待补充</strong>
+			<strong>TODO</strong>
 		</p>
 
 		<p id="Module-datepicker"><b class="header">日期选择器模块</b><code>$we.comp.datepicker.on(id)</code><br />
@@ -541,100 +541,194 @@ if (card) {
 
 		<h2 class="con_title" id="utils">Utils</h2>
 		<p id="Utils-initNameSpace"><b class="header">initNameSpace</b><code>$we.utils.initNameSpace(router, root)</code><br />
-			
+			初始化命名空间
 		</p>
+		<pre> $we.utils.initNameSpace("a.b.c")
+ => a = {b: {c: {}}}</pre>
 		<p id="Utils-request"><b class="header">request</b><code>$we.utils.request(url, data, success, fail, [method], [isJsonp])</code><br />
-			
+			经过封装的HTTP请求方法，对于HTTP的返回结构有一定要求：<br />
+			<code>{"errno":0, "msg":"", "data":[1,2]}</code> <br />
+			<code>url</code> 请求的URL<br />
+			<code>data</code> 请求的具体数据<br />
+			<code>success</code> 请求成功的回调函数，请求成功要求返回结构合法，且 <code>errno</code> 为 <code>0</code><br />
+			<code>fail</code> 请求失败的回调函数，包括超时，返回结构不合法，<code>errno</code> 不为 <code>0</code><br />
+			<code>method</code> POST/GET<br />
+			<code>isJsonp</code> 是否为JSONP请求<br />
+
 		</p>
 		<p id="Utils-exec"><b class="header">exec</b><code>$we.utils.exec(code, [bTranslate])</code><br />
-			
+			执行一段 <code>JavaScript</code> 代码，与 <code>eval</code> 函数的区别在于，该代码的执行域是当前的 <code>window</code>。
+			也就是，通过 <code>$we.utils.exec</code> 执行的代码中的变量，会在当前页面中得到保存。
+			<code>bTranslate</code> 表示是否需要对 <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code> 进行转译。
 		</p>
-		<p id="Utils-setValue"><b class="header">setValue</b><code>$we.utils.setValue(target, data)</code><br />
-			
+		<pre class="runnable">
+<code class="javascript">$we.utils.exec("var we_exec_test_trans = 'A &amp;amp; &amp;lt;B&amp;gt;';", true);
+$we.utils.exec("var we_exec_test_untrans = 'A &amp;amp; &amp;lt;B&amp;gt;';");
+alert(we_exec_test_trans + "\n" + we_exec_test_untrans);</code></pre>
+
+		<p id="Utils-setValue"><b class="header">setValue</b><code>$we.utils.setValue(target, value)</code><br />
+			给对象设置默认值，如果对象已经存在，则返回对象本身的值，否则，返回 <code>value</code>
 		</p>
+		<pre> $we.utils.setValue(undefined, 1);
+ => 1
+ $we.utils.setValue("", 1);
+ => ""</pre>
 		<p id="Utils-addStyleSheet"><b class="header">addStyleSheet</b><code>$we.utils.addStyleSheet(string, [document])</code><br />
-			
+			给制定的 <code>document</code> 添加一个 <code>styleSheet</code>。
 		</p>
+		<pre class="runnable">
+<code class="javascript">$we.utils.addStyleSheet("#Utils-addStyleSheet {color: red;}")</code></pre>
+
 		<p id="Utils-getFormElements"><b class="header">getFormElements</b><code>$we.utils.getFormElements(element)</code><br />
-			
+			<!-- TODO -->
+			<strong>TODO</strong>
 		</p>
 		<p id="Utils-validForm"><b class="header">validForm</b><code>$we.utils.validForm(element)</code><br />
-			
+			<!-- TODO -->
+			<strong>TODO</strong>
 		</p>
 
 		<h2 class="con_title" id="widget">组件类</h2>
 		<p id="Widget-intro"><b class="header">组件简介</b><br />
-			
+			组件是We Framework的一个特殊类，用来统一管理一个功能，或者一个模块的HTML，
+			事件响应，以及组件之间的相互调用和继承关系。
 		</p>
+
 		<p id="Widget-reg"><b class="header">组件注册</b><code>$we.widget.reg(name, option)</code><br />
-			
+			通过 <code>$we.widget.reg</code> 方法可以注册组件，比如：
 		</p>
-		<p id="Widget-reg"><b class="header">组件使用</b><code>$we.widget.add(name, [params], [params], ...)</code><br />
-			
+		<pre class="runnable">
+<code class="javascript">$we.widget.reg("we_framework_test", {
+	init: function() {}, // init 为该组件的 constructor
+	run: function() {} // run 为该组件 constructor之后会被自动调用的函数，可不实现
+});</code></pre>
+
+		<p id="Widget-add"><b class="header">组件使用</b><code>$we.widget.add(name, [params], [params], ...)</code><br />
+			实际调用一个组件的方式很简单：
 		</p>
+		<pre class="runnable">
+<code class="javascript">$we.widget.add("we_framework_test");</code></pre>
+
 		<p id="Widget-node"><b class="header">组件节点管理</b><br />
-			
+			<code>node</code> 在组件的函数中调用 <code>this.node</code> 可以获取组件中的内置节点。
+			节点的声明方式一般为在 HTML 中嵌入这样的代码： <code>&lt;a href="" attr="inner:btn">&lt;/a></code><br />
 		</p>
 		<p id="Widget-interfaces"><b class="header">组件接口</b><br />
-			
+			<code>interfaces</code> 组件在注册的时候，可以声明这个对象，<code>interfaces</code> 的每个属性为一个函数，作为组件被调用时的接口函数。比如： <br />
+			<code>interfaces: { show: function() {  } }</code>
 		</p>
 		<p id="Widget-events"><b class="header">组件事件处理</b><br />
-			
+			<code>events</code> 每个组件对其所管理的节点，HTML绑定事件，比如 <code>&lt;a href="javascript:void(0);" attr="click:speak">&lt;/a></code><br />这个时候就需要在注册组件的时候声明：<br /><code>events: { speak: function() {  } }</code>
 		</p>
 		<p id="Widget-notifies"><b class="header">组件通知处理</b><br />
-			
+			TODO
 		</p>
 		<p id="Widget-extend"><b class="header">组件的继承</b><br />
-			
+			TODO
 		</p>
 
 		<h2 class="con_title" id="business">业务流程组件</h2>
-		<p id="Business-bind_mobile"><b class="header">绑定手机</b><code>$we.biz.use("bind_mobile", data, callback)</code><br />
+		<p>在页面中引用了 We Framework 的 Loader 之后，即可直接调用业务流程的所有方法。
+			除此之外，我们还提供 <code>iframe</code> 版本的业务流程组件：<br />
 		</p>
+		<pre>http://safe.sdo.com/iframe/process?name=xx&amp;theme=xx&amp;width=xx&amp;need_title=xx</pre>
+		<p>
+			其中：<br />
+			<code>name</code> 表示组件的名称，将在下面逐一介绍<br />
+			<code>theme</code> 表示组件选用的主题，目前有两个选择: <code>red</code>， <code>blue</code><br />
+			<code>width</code> 表示组件的总体宽度<br />
+			<code>need_title</code> 表示组件是否需要标题区域<br />
+		</p>
+
+		<p id="Business-bind_mobile"><b class="header">绑定手机</b><code>$we.biz.use("bind_mobile", data, callback)</code><br />
+			<code>bind_mobile</code> 盛大在线绑定手机服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>bind_mobile</b>
+		</p>
+
 		<p id="Business-change_account_phone"><b class="header">修改手机</b><code>$we.biz.use("change_account_phone", data, callback)</code><br />
+			<code>change_account_phone</code> 盛大在线修改某账号的安全手机服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>change_account_phone</b>
 		</p>
 		<p id="Business-unbind_mobile"><b class="header">解绑手机</b><code>$we.biz.use("unbind_mobile", data, callback)</code><br />
+			<code>unbind_mobile</code> 盛大在线解绑安全手机服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>unbind_mobile</b>
 		</p>
 
 		<p id="Business-bind_account_to_mobile_group"><b class="header">绑定账号到手机群</b><code>$we.biz.use("bind_account_to_mobile_group", data, callback)</code><br />
+			<code>bind_account_to_mobile_group</code> 盛大在线手机账号管理体系绑定账号服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>bind_account_to_mobile_group</b>
 		</p>
 		<p id="Business-change_group_phone"><b class="header">修改手机群号码</b><code>$we.biz.use("change_group_phone", data, callback)</code><br />
+			<code>change_group_phone</code> 盛大在线手机账号管理体系修改手机群手机服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>change_group_phone</b>
 		</p>
 		<p id="Business-unbind_account_from_mobile_group"><b class="header">从手机群中解绑账号</b><code>$we.biz.use("unbind_account_from_mobile_group", data, callback)</code><br />
+			<code>unbind_account_from_mobile_group</code> 盛大在线手机账号管理体系解绑账号服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>unbind_account_from_mobile_group</b>
 		</p>
 
 		<p id="Business-bind_email"><b class="header">绑定邮箱</b><code>$we.biz.use("bind_email", data, callback)</code><br />
+			<code>bind_email</code> 盛大在线绑定邮箱服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>bind_email</b>
 		</p>
 		<p id="Business-change_email"><b class="header">修改邮箱</b><code>$we.biz.use("change_email", data, callback)</code><br />
+			<code>change_email</code> 盛大在线更换绑定邮箱服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>change_email</b>
 		</p>
 
 		<p id="Business-modify_password"><b class="header">修改密码</b><code>$we.biz.use("modify_password", data, callback)</code><br />
+			<code>modify_password</code> 盛大在线修改密码服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>modify_password</b>
 		</p>
 		<p id="Business-modify_password_by_phone"><b class="header">通过手机修改密码</b><code>$we.biz.use("modify_password_by_phone", data, callback)</code><br />
+			<code>modify_password_by_phone</code> 盛大在线通过绑定手机修改密码服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>modify_password_by_phone</b>
 		</p>
 
 		<p id="Business-account_transfer"><b class="header">快速划账</b><code>$we.biz.use("account_transfer", data, callback)</code><br />
+			<code>account_transfer</code> 盛大在线快速划账服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>account_transfer</b>
 		</p>
 
 		<p id="Business-real_name_auth"><b class="header">实名认证</b><code>$we.biz.use("real_name_auth", data, callback)</code><br />
+			<code>real_name_auth</code> 盛大在线实名认证服务。包含用户安全卡，密宝验证，以及风控策略。<br />
+			相对的 <code>iframe</code> 地址为： <br />
+			http://safe.sdo.com/iframe/process?name=<b>real_name_auth</b>
 		</p>
 
 		<h2 class="con_title" id="whoisusing">谁正在使用</h2>
-		<p id="Whoisusing-splus"><b class="header">splus.sdo.com</b></p>
+		<p id="Whoisusing-splus"><b class="header">splus.sdo.com</b><br />
+			盛大在线用户账户中心，集成了账户的信息，安全等模块。
+		</p>
 		<div class="image_present">
 			<a target="_blank" href="http://splus.sdo.com">
 				<img src="img/splus.png" width="500">
 			</a>
 		</div>
 
-		<p id="Whoisusing-idplus"><b class="header">idplus.sdo.com</b></p>
+		<p id="Whoisusing-idplus"><b class="header">idplus.sdo.com</b><br />
+			盛大在线手机账号管理页面，集成了该手机群下所有的账号的信息以及相关管理功能。
+		</p>
 		<div class="image_present">
 			<a target="_blank" href="http://idplus.sdo.com">
 				<img src="img/idplus.png" width="500">
 			</a>
 		</div>
 
-		<p id="Whoisusing-sj"><b class="header">sj.sdo.com</b></p>
+		<p id="Whoisusing-sj"><b class="header">sj.sdo.com</b><br />
+			盛大在线安全手机相关管理。
+		</p>
 		<div class="image_present">
 			<a target="_blank" href="http://sj.sdo.com">
 				<img src="img/sj.png" width="500">
@@ -643,22 +737,71 @@ if (card) {
 
 		<h2 class="con_title" id="faq">F.A.Q.</h2>
 		<p id="Faq-why"><b class="header">为什么使用We Framework？</b><br />
+			We Framework与 <code>jQuery</code>, <code>zepto</code> 等库完美兼容。
+			整体理念清晰，极易上手。
+			并且We Framework采用独创的 Loader+Module 技术，实现如下功能：
+		</p>
+		<ul>
+			<li>调用方不关心框架版本升级等问题，只需要引用 Loader 文件，即可轻松使用框架内任何资源。</li>
+			<li>Loader 文件本身非常小，并通过成熟的 <code>requirejs</code> 框架实现模块加载，使得只有需要使用的代码才会被加载，极大的节约了网络开销并且提升了响应速度。</li>
+			<li>对于希望优先加载一部分资源的需求，同样有 <code>$we.biz.announce</code> 等接口保证代码在最开始已经被加载。</li>
+		</ul>
+		<p>
+			We Framework其中提供了各种基础的函数服务，并且在不断的扩充中，用户只需要通过 <code>$we.require</code> 将相应模块加载进来，即可使用最新，最全的基础函数服务。极大的减少了用户的维护成本和开发成本。
+		</p>
+		<p>
+			框架还提供与盛大在线紧紧相关联的各种业务服务，对于希望使用这些业务服务的用户，最大成本的节约了开发成本。
+			只需要一两行代码，便可以完美引入。
 		</p>
 		<p id="Faq-module"><b class="header">什么是模块加载？</b><br />
+			模块加载即根据初始定义的不同模块极其依赖关系，按照依赖顺序加载不同的模块的一种代码引入方式。
+			对于前端 JavaScript 来说，当代码量达到一定数量，并且实际应用场景只会使用到总代码中的一小部分的情况。
+			模块加载则显得尤为重要，下图是根据依赖关系来顺序加载模块的示意图：<br />
+			<img width="550" src="img/module-loading1.png" />
 		</p>
 		<p id="Faq-extend"><b class="header">如何扩展We Framework？</b><br />
+			We Framework的扩展方式非常简单。
+			如果您需要开发新的 组件，那么只需要 <code>$we.require("core", function() {})</code> 之后，
+			在其函数内进行组件的具体开发即可。如果有其它的依赖，则在 <code>require</code> 的依赖中注明相关依赖即可。
+			比如：
 		</p>
+		<pre>
+<code class="javascript">$we.require(["core", "component/dialog"], function() {
+	$we.widget.reg("new_dialog", {
+		init: function(config) {
+			this.extend("Dialog", config);
+		},
+		...
+	});
+});</code></pre>
 		<p id="Faq-debug"><b class="header">如何debug？</b><br />
+			考虑到线上压缩代码难以调试，We Framework还提供一个简单的解决方案。在页面设置 <code>cookie</code>，
+			使得原本请求的压缩版本的代码，转而请求非压缩的代码。甚至，可以将请求的环境转移到 We Framework的开发环境。
+			这里，我们以使用 We Framework 自带的 <code>Cookie</code> 设置方式来做示范。
 		</p>
+		<pre>
+<code class="javascript">$.cookie("_we_debug", 1); // 使用非压缩代码
+$.cookie("_we_force_dev", 1); // 使用开发环境的代码
+</code></pre>
 
 		<h2 class="con_title" id="changelog">更新日志</h2>
-		<p><b class="header">1.0.0</b> — <small><i>2012年10月12日</i></small><br />
+		<p><b class="header">1.0.2</b> — <small><i>2012年1月15日</i></small><br />
+			引入新的代码压缩方式，使得请求更加轻松。Fix Bugs。并且发布该文档。
 		</p>
 		<p><b class="header">1.0.1</b> — <small><i>2012年12月25日</i></small><br />
+			We Framework引入 Loader 和 Module，对原有的函数进行大幅整理。
+			引入了许多新的函数和方法。
 		</p>
-		<p><b class="header">1.0.2</b> — <small><i>2012年1月15日</i></small><br />
+		<p><b class="header">1.0.0</b> — <small><i>2012年10月12日</i></small><br />
+			最初版本的 We Framework发布，初始版本不支持 Loader 和 Module，所有文件打成两个包，
+			引用地址为：<br />
+			http://we.sdoprofile.com/common/css/compressed/we-1.0.0.min.css
+			http://we.sdoprofile.com/common/js/compressed/we-1.0.0.min.js
 		</p>
+		<br />
+		<br />
 		<p class="image_present">
+
 			<a target="_blank" href="http://www.sdo.com"><img src="img/sdologo.jpg" /></a>
 		</p>
 	</div>
