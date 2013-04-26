@@ -215,7 +215,7 @@ beforeAction 里面的 this 就是当前步骤的组件本身，注意，该组�
 
 ```javascript
 this.params.tips = '嘿嘿';
-this.notify("renderBottom", '&lt;strong>温馨提示：&lt;/strong>请注意您的财产安全！');
+this.notify("renderBottom", '<strong>温馨提示：</strong>请注意您的财产安全！');
 ```
 
 
