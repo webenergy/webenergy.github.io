@@ -8,14 +8,14 @@
 	<link rel="icon" href="img/battery.ico" />
 	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<link rel="stylesheet" type="text/css" href="css/xcode.css">
-	<script type="text/javascript" src="http://we.sdoprofile.com/common/js/release/loader.min.js"></script>
+	<script type="text/javascript" src="https://we.sdoprofile.com/common/js/release/loader.min.js"></script>
 </head>
 <body>
 	<div class="sidebar interface">
 		<a class="toc_title" href="">We Framework</a>
 		<ul class="toc_section">
-			<li>» <a target="_blank" href="http://we.sdoprofile.com/common/js/test">内部文档</a></li>
-			<li>» <a target="_blank" href="http://webenergy.github.io/introduction/">宣传页面</a></li>
+			<li>» <a target="_blank" href="https://we.sdoprofile.com/common/js/test">内部文档</a></li>
+			<li>» <a target="_blank" href="https://webenergy.github.io/introduction/">宣传页面</a></li>
 			<li>» <a target="_blank" href="https://github.com/webenergy/webenergy.github.io">Github地址</a></li>
 		</ul>
 		<a class="toc_title" href="#introduction">简介</a>
@@ -149,9 +149,9 @@
 		<p>引用We Framework只有一个文件:</p>
 		<pre><code class="html">&lt;html>
 &lt;head>
-	&lt;!--&lt;script src="http://somewhere/jquery.js">&lt;/script>-->
+	&lt;!--&lt;script src="https://somewhere/jquery.js">&lt;/script>-->
 	&lt;script type="text/javascript" 
-	src="http://we.sdoprofile.com/common/js/release/loader.min.js" >&lt;/script>
+	src="https://we.sdoprofile.com/common/js/release/loader.min.js" >&lt;/script>
 &lt;/head>
 ...</code></pre>
 
@@ -224,7 +224,7 @@ $we.require("core/array", function(arr_module) {
 			加载一个css文件，<code>url</code> 为css的地址。
 		</p>
 		<pre>
-<code class="javascript">$we.requireCss("http://some/css/files");</code></pre>
+<code class="javascript">$we.requireCss("https://some/css/files");</code></pre>
 
 		<h2 class="con_title" id="module">模块说明</h2>
 		<p id="Module-core"><b class="header">核心方法类模块</b><br />
@@ -295,7 +295,7 @@ $we.require("core/array", function(arr_module) {
 	class="javascript" autorun="true">alert(1);&lt;/textarea></code></pre>
 			
 
-		<p class="important">可以参考 <a target="_blank" href="http://we.sdoprofile.com/common/js/test/component/coderunner.html">CodeRunner</a> 页面查看具体使用情况</p>
+		<p class="important">可以参考 <a target="_blank" href="https://we.sdoprofile.com/common/js/test/component/coderunner.html">CodeRunner</a> 页面查看具体使用情况</p>
 
 		<p id="Module-rsa"><b class="header">RSA加密模块</b><code>$we.rsa.encrypt(str)</code><br />
 			JavaScript处理RSA加密：
@@ -514,17 +514,17 @@ $we.require("core/array", function(arr_module) {
 			获取Str的Query数组，<code>str</code> 不传则取当前页面地址
 		</p>
 		<pre class="runnable">
-<code class="javascript">alert($we.string.getQueryString("http://abc.de?a=1&amp;b=2"));</code></pre>
+<code class="javascript">alert($we.string.getQueryString("https://abc.de?a=1&amp;b=2"));</code></pre>
 		<p id="String-getQueryByName"><b class="header">getQueryByName</b><code>$we.string.getQueryByName(name, [str])</code><br />
 			通过 <code>name</code> 获取Str的Query，<code>str</code> 不传则取当前页面地址
 		</p>
 		<pre class="runnable">
-<code class="javascript">alert($we.string.getQueryByName("a","http://abc.de?a=1&amp;b=2"));</code></pre>
+<code class="javascript">alert($we.string.getQueryByName("a","https://abc.de?a=1&amp;b=2"));</code></pre>
 		<p id="String-getQueryByIndex"><b class="header">getQueryByIndex</b><code>$we.string.getQueryByIndex(index, [str])</code><br />
 			通过 <code>index</code> 获取Str的Query，<code>str</code> 不传则取当前页面地址
 		</p>
 		<pre class="runnable">
-<code class="javascript">alert($we.string.getQueryByIndex(1,"http://abc.de?a=1&amp;b=2"));</code></pre>
+<code class="javascript">alert($we.string.getQueryByIndex(1,"https://abc.de?a=1&amp;b=2"));</code></pre>
 
 		<p id="String-validIdCard"><b class="header">validIdCard</b><code>$we.string.validIdCard(str)</code><br />
 			验证身份证的合法性。
@@ -634,11 +634,11 @@ alert(we_exec_test_trans + "\n" + we_exec_test_untrans);</code></pre>
 			除此之外，我们还提供 <code>iframe</code> 版本的业务流程组件：<br />
 		</p>
 		<pre>
-<code class="html">&lt;script src="http://we.sdoprofile.com/common/js/release/loader.min.js">
+<code class="html">&lt;script src="https://we.sdoprofile.com/common/js/release/loader.min.js">
 	&lt;/script>
 &lt;script type="text/javascript">$we.biz.use("name")&lt;/script>
 &lt;!-- 或者使用 iframe --&gt;
-&lt;iframe src="http://safe.sdo.com/iframe/process?
+&lt;iframe src="https://safe.sdo.com/iframe/process?
 	name=xx&amp;theme=xx&amp;width=xx&amp;need_title=xx"&gt;&lt;/iframe&gt;
 </code></pre>
 		<pre></pre>
@@ -655,68 +655,68 @@ alert(we_exec_test_trans + "\n" + we_exec_test_untrans);</code></pre>
 		<p id="Business-bind_mobile"><b class="header">绑定手机</b><code>$we.biz.use("bind_mobile", data, callback)</code><br />
 			<code>bind_mobile</code> 盛大在线绑定手机服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>bind_mobile</b>
+			https://safe.sdo.com/iframe/process?name=<b>bind_mobile</b>
 		</p>
 
 		<p id="Business-change_account_phone"><b class="header">修改手机</b><code>$we.biz.use("change_account_phone", data, callback)</code><br />
 			<code>change_account_phone</code> 盛大在线修改某账号的安全手机服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>change_account_phone</b>
+			https://safe.sdo.com/iframe/process?name=<b>change_account_phone</b>
 		</p>
 		<p id="Business-unbind_mobile"><b class="header">解绑手机</b><code>$we.biz.use("unbind_mobile", data, callback)</code><br />
 			<code>unbind_mobile</code> 盛大在线解绑安全手机服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>unbind_mobile</b>
+			https://safe.sdo.com/iframe/process?name=<b>unbind_mobile</b>
 		</p>
 
 		<p id="Business-bind_account_to_mobile_group"><b class="header">绑定账号到手机群</b><code>$we.biz.use("bind_account_to_mobile_group", data, callback)</code><br />
 			<code>bind_account_to_mobile_group</code> 盛大在线手机账号管理体系绑定账号服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>bind_account_to_mobile_group</b>
+			https://safe.sdo.com/iframe/process?name=<b>bind_account_to_mobile_group</b>
 		</p>
 		<p id="Business-change_group_phone"><b class="header">修改手机群号码</b><code>$we.biz.use("change_group_phone", data, callback)</code><br />
 			<code>change_group_phone</code> 盛大在线手机账号管理体系修改手机群手机服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>change_group_phone</b>
+			https://safe.sdo.com/iframe/process?name=<b>change_group_phone</b>
 		</p>
 		<p id="Business-unbind_account_from_mobile_group"><b class="header">从手机群中解绑账号</b><code>$we.biz.use("unbind_account_from_mobile_group", data, callback)</code><br />
 			<code>unbind_account_from_mobile_group</code> 盛大在线手机账号管理体系解绑账号服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>unbind_account_from_mobile_group</b>
+			https://safe.sdo.com/iframe/process?name=<b>unbind_account_from_mobile_group</b>
 		</p>
 
 		<p id="Business-bind_email"><b class="header">绑定邮箱</b><code>$we.biz.use("bind_email", data, callback)</code><br />
 			<code>bind_email</code> 盛大在线绑定邮箱服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>bind_email</b>
+			https://safe.sdo.com/iframe/process?name=<b>bind_email</b>
 		</p>
 		<p id="Business-change_email"><b class="header">修改邮箱</b><code>$we.biz.use("change_email", data, callback)</code><br />
 			<code>change_email</code> 盛大在线更换绑定邮箱服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>change_email</b>
+			https://safe.sdo.com/iframe/process?name=<b>change_email</b>
 		</p>
 
 		<p id="Business-modify_password"><b class="header">修改密码</b><code>$we.biz.use("modify_password", data, callback)</code><br />
 			<code>modify_password</code> 盛大在线修改密码服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>modify_password</b>
+			https://safe.sdo.com/iframe/process?name=<b>modify_password</b>
 		</p>
 		<p id="Business-modify_password_by_phone"><b class="header">通过手机修改密码</b><code>$we.biz.use("modify_password_by_phone", data, callback)</code><br />
 			<code>modify_password_by_phone</code> 盛大在线通过绑定手机修改密码服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>modify_password_by_phone</b>
+			https://safe.sdo.com/iframe/process?name=<b>modify_password_by_phone</b>
 		</p>
 
 		<p id="Business-account_transfer"><b class="header">快速划账</b><code>$we.biz.use("account_transfer", data, callback)</code><br />
 			<code>account_transfer</code> 盛大在线快速划账服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>account_transfer</b>
+			https://safe.sdo.com/iframe/process?name=<b>account_transfer</b>
 		</p>
 
 		<p id="Business-real_name_auth"><b class="header">实名认证</b><code>$we.biz.use("real_name_auth", data, callback)</code><br />
 			<code>real_name_auth</code> 盛大在线实名认证服务。包含用户安全卡，密宝验证，以及风控策略。<br />
 			相对的 <code>iframe</code> 地址为： <br />
-			http://safe.sdo.com/iframe/process?name=<b>real_name_auth</b>
+			https://safe.sdo.com/iframe/process?name=<b>real_name_auth</b>
 		</p>
 
 		<h2 class="con_title" id="whoisusing">谁正在使用</h2>
@@ -724,7 +724,7 @@ alert(we_exec_test_trans + "\n" + we_exec_test_untrans);</code></pre>
 			盛大在线用户账户中心，集成了账户的信息，安全等模块。
 		</p>
 		<div class="image_present">
-			<a target="_blank" href="http://splus.sdo.com">
+			<a target="_blank" href="https://splus.sdo.com">
 				<img src="img/splus.png" width="500">
 			</a>
 		</div>
@@ -733,7 +733,7 @@ alert(we_exec_test_trans + "\n" + we_exec_test_untrans);</code></pre>
 			盛大在线手机账号管理页面，集成了该手机群下所有的账号的信息以及相关管理功能。
 		</p>
 		<div class="image_present">
-			<a target="_blank" href="http://idplus.sdo.com">
+			<a target="_blank" href="https://idplus.sdo.com">
 				<img src="img/idplus.png" width="500">
 			</a>
 		</div>
@@ -742,7 +742,7 @@ alert(we_exec_test_trans + "\n" + we_exec_test_untrans);</code></pre>
 			盛大在线安全手机相关管理。
 		</p>
 		<div class="image_present">
-			<a target="_blank" href="http://sj.sdo.com">
+			<a target="_blank" href="https://sj.sdo.com">
 				<img src="img/sj.png" width="500">
 			</a>
 		</div>
@@ -807,13 +807,13 @@ $.cookie("_we_force_dev", 1); // 使用开发环境的代码
 		<p><b class="header">1.0.0</b> — <small><i>2012年10月12日</i></small><br />
 			最初版本的 We Framework发布，初始版本不支持 Loader 和 Module，所有文件打成两个包，
 			引用地址为：<br />
-			http://we.sdoprofile.com/common/css/compressed/we-1.0.0.min.css
-			http://we.sdoprofile.com/common/js/compressed/we-1.0.0.min.js
+			https://we.sdoprofile.com/common/css/compressed/we-1.0.0.min.css
+			https://we.sdoprofile.com/common/js/compressed/we-1.0.0.min.js
 		</p>
 		<br />
 		<br />
 		<p class="image_present">
-			<a target="_blank" href="http://www.sdo.com"><img src="img/sdologo.jpg" /></a>
+			<a target="_blank" href="https://www.sdo.com"><img src="img/sdologo.jpg" /></a>
 		</p>
 	</div>
 	<script type="text/javascript" src="js/highlight.pack.js"></script>
